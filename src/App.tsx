@@ -1,12 +1,12 @@
-import { Test } from "./Test";
-import { Home } from "./components/pages/Home";
+import { BaseLayout } from "./components/templates/BaseLayout";
+import { Router } from "./router/Router";
 
 function App() {
     return (
         <>
-            <h1>Hello, MyPortfolio!!</h1>
-            <Home />
-            <Test text={"This is Test component."} />
+            <BaseLayout>
+                <Router />
+            </BaseLayout>
         </>
     );
 }
