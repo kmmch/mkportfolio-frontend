@@ -1,12 +1,15 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import { BaseLayout } from "./components/templates/BaseLayout";
 import { Router } from "./router/Router";
 
 function App() {
     return (
         <>
-            <BaseLayout>
-                <Router />
-            </BaseLayout>
+            <ChakraProvider>
+                <BaseLayout>
+                    <Router />
+                </BaseLayout>
+            </ChakraProvider>
         </>
     );
 }
