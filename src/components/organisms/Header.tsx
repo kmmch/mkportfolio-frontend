@@ -1,9 +1,16 @@
+import { Box, Center, Container, Heading } from "@chakra-ui/react";
 import { FC, memo } from "react";
 
 export const Header:FC = memo(() => {
     return (
         <>
-            <p>Header</p>
+            <Box py="0">
+                <Container>
+                    <Center>
+                        <Heading as="h1">m0chi.work</Heading>
+                    </Center>
+                </Container>
+            </Box>
         </>
     );
 });
