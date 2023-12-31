@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 type Props = {
     label: string;
     to: string;
+    target?: string;
 };
 
 export const LinkButton:FC<Props> = memo((props) => {
-    const { label, to } = props;
+    const { label, to, target="" } = props;
 
     return (
         <>
             <PrimaryButton>
-                <Link to={to}>{ label }</Link>
+                <Link to={to} target={target}>{ label }</Link>
             </PrimaryButton>
         </>
     );

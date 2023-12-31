@@ -1,4 +1,4 @@
-import { Box, Card, CardBody, Text, Image, Heading, HStack } from "@chakra-ui/react";
+import { Box, Card, CardBody, Text, Image, Heading, HStack, Flex } from "@chakra-ui/react";
 import { FC, memo } from "react";
 import { Level } from "../atoms/Level";
 import { Tag } from "../atoms/Tag";
@@ -14,23 +14,23 @@ export const SkillCard:FC<Props> = memo((props) => {
 
     return (
         <>
-            <Card my="5">
+            <Card w="335px">
                 <CardBody>
-                    <HStack>
+                    <Flex justifyContent="start" alignItems="center">
                         <Image
                             src={img}
                             alt={title}
                             h="50px"
                             w="50px"
                         />
-                        <Box ml="3">
-                            <Heading as="h3" fontSize="2xl">{title}</Heading>
+                        <Box ml="2">
+                            <Heading as="h3" fontSize="2xl" mb="1">{title}</Heading>
                             <Level level={level}/>
                             {tags.map((tag) => {
                                 return(<Tag label={tag} />);
                             })}
                         </Box>
-                    </HStack>
+                    </Flex>
                 </CardBody>
             </Card>
         </>

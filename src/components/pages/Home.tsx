@@ -1,155 +1,163 @@
 import { 
     Box, 
-    Container, 
     Text, 
-    Image,
-    VStack,
-    Heading,
     Center,
+    Tabs, 
+    TabList, 
+    TabPanels, 
+    Tab, 
+    TabPanel,
+    Wrap, 
+    WrapItem,
+    Flex,
 } from '@chakra-ui/react';
 import { WorkCard } from '../molecules/WorkCard';
 import { Level } from '../atoms/Level';
 import { SkillCard } from '../molecules/SkillCard';
+import { LinkButton } from '../molecules/LinkButton';
+import { MainVisual } from '../organisms/MainVisual';
+import { Profile } from '../organisms/Profile';
+import { TopSection } from '../organisms/TopSection';
+
+import { WORK_DATA } from '../../data/work';
+import { 
+    FRONT_SKILL_DATA,
+    BACK_SKILL_DATA,
+    OTHER_SKILL_DATA
+} from '../../data/skill';
 
 export const Home = () => {
     
     return (
         <>
-            <Box>
-                <Container p="0">
-
-                    {/* MainVisual */}
-                    <Box h="100vh">
-                        <Center h="100%">
-                            <VStack>
-                                <Heading as="h1">MochiLog</Heading>
-                                <Text>Webエンジニア もちけんのポートフォリオサイトへようこそ！</Text>
-                            </VStack>
-                        </Center>
-                    </Box>
+            {/* MainVisual */}
+            <MainVisual />
 
 
-                    {/* Profile */}
-                    <Box h="100vh" bg="">
-                        <Center h="100%">
-                            <VStack>
-                                <Heading>PROFILE</Heading>
-                                <Image
-                                    borderRadius='full'
-                                    boxSize='30%' 
-                                    src='/myicon.png'
-                                    alt='Test'
-                                />
-                                <Heading as="h2" fontSize="2xl">もちけん / Masaya Kemmochi</Heading>
-                                {/* <Heading as="h3" fontWeight="400" fontSize="lg">Webエンジニア</Heading> */}
-                                <Text maxW="320px">
-                                    埼玉県出身のWEBエンジニア。<br />
-                                    学生時代に自然言語処理を学んだのち、SIerでWEBサイトの構築や運用に従事。<br />
-                                    スキルアップのために個人でもWEBアプリ開発やIT教育の活動もおこなっている。
-                                </Text>
-                                {/* <LinkButton label="詳しいプロフィールはこちら" to="aaa" /> */}
-                            </VStack>
-                        </Center>
-                    </Box>
-
-
-                    {/* Works */}
-                    <Center py="75px">
-                        <VStack>
-                            <Heading>WORKS</Heading>
-                            <Text>これまでの実績</Text>
-                            <Box>
-                                <WorkCard 
-                                    title="MochiLog"
-                                    img="/works/mochiportfolio.png"
-                                />
-                                {/* <WorkCard
-                                    title="実績のタイトル"
-                                    img="https://source.unsplash.com/random"
-                                /> */}
-                                {/* <WorkCard   
-                                    title="実績はこちら"
-                                    img="https://source.unsplash.com/random"
-                                /> */}
-                                {/* <LinkButton label="他の実績はこちら" to="aaa" /> */}
-                            </Box>                        
-                        </VStack>
-                    </Center>
-                        
-
-                    {/* Skill */}
-                    <Center py="75px">
-                        <VStack>
-                            <Heading>Skill</Heading>
-                            <Text>使用可能な技術</Text>
-                            <Box>
-                                <Box>
-                                    <Box mb="2"><Level level={1} /><Text display="inline-block">興味がある</Text></Box>
-                                    <Box mb="2"><Level level={2} /><Text display="inline-block">学んだことがある</Text></Box>
-                                    <Box mb="2"><Level level={3} /><Text display="inline-block">実務で使ったことがある</Text></Box>
-                                    <Box mb="2"><Level level={4} /><Text display="inline-block">実務で使用しており、他人への指導もできる</Text></Box>
-                                </Box>
-                                <Box>
-                                    <SkillCard
-                                        img="/skills/HTML.svg"
-                                        title="HTML"
-                                        level={4}
-                                        tags={["WEB", "front-end"]}
-                                    />
-                                    <SkillCard
-                                        img="/skills/CSS.svg"
-                                        title="CSS"
-                                        level={4}
-                                        tags={["WEB", "front-end"]}
-                                    />
-                                    <SkillCard
-                                        img="/skills/Sass.svg"
-                                        title="Sass"
-                                        level={4}
-                                        tags={["WEB", "front-end"]}
-                                    />
-                                    <SkillCard
-                                        img="/skills/Javascript.svg"
-                                        title="Javascript"
-                                        level={4}
-                                        tags={["WEB", "front-end"]}
-                                    />
-                                    <SkillCard
-                                        img="/skills/TypeScript.svg"
-                                        title="TypeScript"
-                                        level={2}
-                                        tags={["WEB", "front-end"]}
-                                    />
-                                    <SkillCard
-                                        img="/skills/Python.svg"
-                                        title="Python"
-                                        level={2}
-                                        tags={["back-end"]}
-                                    />
-                                </Box>
-                            {/* <Heading>Language</Heading>
-                            <Text>Javascript</Text>
-                            <Text>TypeScript</Text>
-                            <Text>PHP</Text>
-                            <Text>Python</Text>
-                            <Text>Java</Text>
-                            <Heading>Framework</Heading>
-                            <Text>React</Text>
-                            <Text>Symfony</Text>
-                            <Heading>CMS</Heading>
-                            <Text>Wordpress</Text>
-                            <Text>Drupal</Text>
-                            <Heading>MiddleWare</Heading>
-                            <Text>Apache</Text>
-                            <Text>MySQL</Text>
-                            <Heading>Infrastructure</Heading>
-                            <Text>AWS</Text> */}
-                            </Box>
-                        </VStack>
-                    </Center>
-
-                </Container>
+            {/* Profile */}
+            <Box h="100vh" bg="">
+                <Center h="100%">
+                    <Profile />
+                </Center>
             </Box>
+
+
+            {/* WORKS */}
+            <TopSection
+                title="WORKS"
+                description="これまでの実績"
+            >
+                <Wrap spacing='20px' justify={"center"}>
+                    {WORK_DATA.map((work) => {
+                        return(
+                            <WrapItem>
+                                <WorkCard   
+                                    title={work.title}
+                                    img={work.img}
+                                />
+                            </WrapItem>
+                        );
+                    })}
+                </Wrap>
+                {/* <LinkButton label="他の実績はこちら" to="aaa" /> */}
+            </TopSection>
+                
+
+            {/* SKILL */}
+            <TopSection
+                title="SKILL"
+                description="使用可能な技術"
+            >
+                <Flex justifyContent="center" mb="20px">
+                    <Box>
+                        <Box mb="2"><Level level={1} /><Text display="inline-block">興味がある</Text></Box>
+                        <Box mb="2"><Level level={2} /><Text display="inline-block">学んだことがある</Text></Box>
+                        <Box mb="2"><Level level={3} /><Text display="inline-block">実務で使ったことがある</Text></Box>
+                        <Box mb="2"><Level level={4} /><Text display="inline-block">実務での使用、指導ができる</Text></Box>
+                    </Box>
+                </Flex>
+                <Tabs isFitted variant='enclosed'>
+                    <TabList mb='1em'>
+                        <Tab>Front-End</Tab>
+                        <Tab>Back-End</Tab>
+                        <Tab>Other</Tab>
+                    </TabList>
+                    <TabPanels>
+                        <TabPanel>
+                            <Wrap justify='center'>
+                                {FRONT_SKILL_DATA.map((skill) => {
+                                    return(
+                                        <WrapItem>
+                                            <SkillCard
+                                                img={skill.img}
+                                                title={skill.title}
+                                            level={skill.level}
+                                            tags={skill.tags}
+                                            />
+                                        </WrapItem>
+                                    );
+                                })}
+                            </Wrap>
+                        </TabPanel>
+                        <TabPanel>
+                            <Wrap justify='center'>
+                                {BACK_SKILL_DATA.map((skill) => {
+                                    return(
+                                        <WrapItem>
+                                            <SkillCard
+                                                img={skill.img}
+                                                title={skill.title}
+                                            level={skill.level}
+                                            tags={skill.tags}
+                                            />
+                                        </WrapItem>
+                                    );
+                                })}
+                            </Wrap>
+                        </TabPanel>
+                        <TabPanel>
+                            <Wrap justify='center'>
+                                {OTHER_SKILL_DATA.map((skill) => {
+                                    return(
+                                        <WrapItem>
+                                            <SkillCard
+                                                img={skill.img}
+                                                title={skill.title}
+                                            level={skill.level}
+                                            tags={skill.tags}
+                                            />
+                                        </WrapItem>
+                                    );
+                                })}
+                            </Wrap>
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
+            </TopSection>
+
+
+                    {/* CONTACT */}
+                    <TopSection
+                        title="CONTACT"
+                        description='お問い合わせ'
+                    >
+                    {/* <Text align="center">
+                            サイトをご覧いただきありがとうございます。<br />
+                            ご相談やご質問はこちらのフォームよりお問い合わせください。<br />
+                            原則1〜2営業日以内にご返信いたします。<br />
+                        </Text>
+                        <Center>
+                            <LinkButton to="/contact" label="お問い合わせはこちら" />
+                        </Center> */}
+                        <Text align="center">
+                            サイトをご覧いただきありがとうございます。<br />
+                            ご相談やご質問はXのDMよりお問い合わせください。<br />
+                            原則1〜2営業日以内にご返信いたします。<br />
+                        </Text>
+                        <Center mt="2">
+                            <LinkButton to="https://twitter.com/mochiken__code" label="お問い合わせはこちら" target="_blank" />
+                        </Center>
+                    </TopSection>
         </>
     );
 }
