@@ -1,8 +1,6 @@
 import { 
     Card, 
-    CardHeader, 
     CardBody, 
-    CardFooter, 
     Stack, 
     Center, 
     Heading, 
@@ -16,16 +14,22 @@ import {
     ModalCloseButton,
     useDisclosure,
     Button,
-} from '@chakra-ui/react'
+    Box,
+    Text,
+    Link
+} from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { FC, memo } from "react";
 
 type Props = {
     title: string;
     img: string;
+    url?: string;
+    modal?: boolean;
 };
 
 export const WorkCard:FC<Props> = memo((props) => {
-    const { title, img } = props;
+    const { title, img, url = "", modal = false } = props;
     const { isOpen, onOpen, onClose } = useDisclosure();
     
     return (
@@ -34,6 +38,7 @@ export const WorkCard:FC<Props> = memo((props) => {
                 w='360px' 
                 _hover={{opacity: "0.5", transition: "all 0.3s", cursor: "pointer"}}
                 mx="3"
+                onClick={onOpen}
             >
                 {/* onClick={onOpen}を削除した */}
                 <CardBody>
@@ -41,7 +46,7 @@ export const WorkCard:FC<Props> = memo((props) => {
                         src={img}
                         alt={title}
                         w="360px"
-                        h="240px"
+                        h="200px"
                     />
                     <Stack mt='3'>
                         <Center>
@@ -51,12 +56,19 @@ export const WorkCard:FC<Props> = memo((props) => {
                 </CardBody>
             </Card>
 
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={modal && isOpen} onClose={onClose}  isCentered>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>{ title }</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
+                        { url && 
+                            <Box>
+                                <Link href={url} isExternal>
+                                    こちらから確認できます。<ExternalLinkIcon mx='2px' />
+                                </Link>
+                            </Box>
+                        }
                     </ModalBody>
                     <ModalFooter>
                         <Button colorScheme='gray' mr={3} onClick={onClose}>Close</Button>

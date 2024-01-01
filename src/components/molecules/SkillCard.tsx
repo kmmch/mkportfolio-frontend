@@ -9,12 +9,16 @@ type Props = {
     level: number;
     tags: Array<string>;
 };
+
 export const SkillCard:FC<Props> = memo((props) => {
     const { img, title, level, tags } = props;
 
     return (
         <>
-            <Card w="335px">
+            <Card
+                w="331.11px"
+                my="3"
+            >
                 <CardBody>
                     <Flex justifyContent="start" alignItems="center">
                         <Image
@@ -26,8 +30,10 @@ export const SkillCard:FC<Props> = memo((props) => {
                         <Box ml="2">
                             <Heading as="h3" fontSize="2xl" mb="1">{title}</Heading>
                             <Level level={level}/>
-                            {tags.map((tag) => {
-                                return(<Tag label={tag} />);
+                            {tags.map((tag, index) => {
+                                return (
+                                    <Tag label={tag} key={index} />
+                                );
                             })}
                         </Box>
                     </Flex>

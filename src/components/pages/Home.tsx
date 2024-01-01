@@ -6,25 +6,21 @@ import {
     TabList, 
     TabPanels, 
     Tab, 
-    TabPanel,
-    Wrap, 
-    WrapItem,
     Flex,
 } from '@chakra-ui/react';
-import { WorkCard } from '../molecules/WorkCard';
 import { Level } from '../atoms/Level';
-import { SkillCard } from '../molecules/SkillCard';
 import { LinkButton } from '../molecules/LinkButton';
 import { MainVisual } from '../organisms/MainVisual';
 import { Profile } from '../organisms/Profile';
 import { TopSection } from '../organisms/TopSection';
 
-import { WORK_DATA } from '../../data/work';
 import { 
     FRONT_SKILL_DATA,
     BACK_SKILL_DATA,
     OTHER_SKILL_DATA
 } from '../../data/skill';
+import { SkillCardList } from '../molecules/SkillCardList';
+import { WorkCardList } from '../molecules/WorkCardList';
 
 export const Home = () => {
     
@@ -47,18 +43,7 @@ export const Home = () => {
                 title="WORKS"
                 description="これまでの実績"
             >
-                <Wrap spacing='20px' justify={"center"}>
-                    {WORK_DATA.map((work) => {
-                        return(
-                            <WrapItem>
-                                <WorkCard   
-                                    title={work.title}
-                                    img={work.img}
-                                />
-                            </WrapItem>
-                        );
-                    })}
-                </Wrap>
+                <WorkCardList />
                 {/* <LinkButton label="他の実績はこちら" to="aaa" /> */}
             </TopSection>
                 
@@ -76,61 +61,18 @@ export const Home = () => {
                         <Box mb="2"><Level level={4} /><Text display="inline-block">実務での使用、指導ができる</Text></Box>
                     </Box>
                 </Flex>
-                <Tabs isFitted variant='enclosed'>
+                <Tabs isFitted variant='enclosed'
+                    px="3"
+                >
                     <TabList mb='1em'>
                         <Tab>Front-End</Tab>
                         <Tab>Back-End</Tab>
                         <Tab>Other</Tab>
                     </TabList>
                     <TabPanels>
-                        <TabPanel>
-                            <Wrap justify='center'>
-                                {FRONT_SKILL_DATA.map((skill) => {
-                                    return(
-                                        <WrapItem>
-                                            <SkillCard
-                                                img={skill.img}
-                                                title={skill.title}
-                                            level={skill.level}
-                                            tags={skill.tags}
-                                            />
-                                        </WrapItem>
-                                    );
-                                })}
-                            </Wrap>
-                        </TabPanel>
-                        <TabPanel>
-                            <Wrap justify='center'>
-                                {BACK_SKILL_DATA.map((skill) => {
-                                    return(
-                                        <WrapItem>
-                                            <SkillCard
-                                                img={skill.img}
-                                                title={skill.title}
-                                            level={skill.level}
-                                            tags={skill.tags}
-                                            />
-                                        </WrapItem>
-                                    );
-                                })}
-                            </Wrap>
-                        </TabPanel>
-                        <TabPanel>
-                            <Wrap justify='center'>
-                                {OTHER_SKILL_DATA.map((skill) => {
-                                    return(
-                                        <WrapItem>
-                                            <SkillCard
-                                                img={skill.img}
-                                                title={skill.title}
-                                            level={skill.level}
-                                            tags={skill.tags}
-                                            />
-                                        </WrapItem>
-                                    );
-                                })}
-                            </Wrap>
-                        </TabPanel>
+                        <SkillCardList skills={FRONT_SKILL_DATA}/>
+                        <SkillCardList skills={BACK_SKILL_DATA}/>
+                        <SkillCardList skills={OTHER_SKILL_DATA}/>
                     </TabPanels>
                 </Tabs>
             </TopSection>
