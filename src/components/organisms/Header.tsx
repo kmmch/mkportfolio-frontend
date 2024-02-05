@@ -1,9 +1,10 @@
 import { FC, memo } from "react";
+import { Heading } from '@chakra-ui/react'
 
 export const Header: FC = memo(() => {
     return (
         <>
-            Mochiken's Portfolio
+            <Heading as='h1'>Mochiken's Portfolio</Heading>
         </>
     );
 });
