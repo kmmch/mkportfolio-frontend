@@ -1,15 +1,4 @@
 import { FC, memo } from "react";
-import styled from "styled-components";
-
-const StyledCopyrightText = styled.p`
-    text-align: center;
-`;
-
-const StyledCopyrightBr = styled.br`
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
-`;
 
 export const Copyright: FC = memo(() => {
 
@@ -18,7 +7,7 @@ export const Copyright: FC = memo(() => {
 
     return (
         <>
-            <StyledCopyrightText>COPYRIGHT © {year} MASAYA KEMMOCHI. <StyledCopyrightBr />ALL RIGHTS RESERVED.</StyledCopyrightText>
+            COPYRIGHT © {year} MASAYA KEMMOCHI. ALL RIGHTS RESERVED.
         </>
     );
 });
