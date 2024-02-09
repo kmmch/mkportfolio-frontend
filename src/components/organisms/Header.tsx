@@ -1,10 +1,17 @@
 import { FC, memo } from "react";
-import { Heading } from '@chakra-ui/react'
+import { Box, Center, Heading } from '@chakra-ui/react'
+import { BasicContainer } from "../atoms/BasicContainer";
 
 export const Header: FC = memo(() => {
     return (
         <>
-            <Heading as='h1'>Mochiken's Portfolio</Heading>
+            <Box backgroundColor='gray.400'>
+                <BasicContainer bColor='gray.300'>
+                    <Center>
+                        <Heading as='h1'>Mochiken's Portfolio</Heading>
+                    </Center>
+                </BasicContainer>
+            </Box>
         </>
     );
 });
