@@ -5,8 +5,10 @@ import { BasicContainer } from "../atoms/BasicContainer";
 export const Header: FC = memo(() => {
     return (
         <>
-            <Box backgroundColor='gray.400'>
-                <BasicContainer bColor='gray.300'>
+            {/* <Box backgroundColor='gray.400'>
+                <BasicContainer bColor='gray.300'> */}
+            <Box>
+                <BasicContainer>
                     <Center>
                         <Heading as='h1'>Mochiken's Portfolio</Heading>
                     </Center>

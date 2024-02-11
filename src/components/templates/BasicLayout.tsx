@@ -14,8 +14,8 @@ export const BasicLayout: FC<Props> = memo((props) => {
         <>
             <Header />
 
-            <Box backgroundColor='gray.300'>
-                <BasicContainer bColor='gray.50'>
+            <Box py={5}>
+                <BasicContainer>
                     { children }
                 </BasicContainer>
             </Box>

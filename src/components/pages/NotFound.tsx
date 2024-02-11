@@ -1,17 +1,34 @@
-import { Box, Center, Heading, Link, Text } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import { FC, memo } from "react";
 import { StyledBr } from "../styled/StyledBr";
+import { LinkButton } from "../atoms/LinkButton";
+import { BasicBreadCrumb } from "../molecules/BasicBreadcrumb";
+import { url } from "../types/CustomType";
+import { Title } from "../atoms/Title";
 
 export const NotFound: FC = memo(() => {
+    const title = "お探しのページは見つかりません";
+    const urls: Array<url> = [
+        {
+            link: "/", 
+            title: "ホーム"
+        },
+        { 
+            link: "/asdfg",
+            title: title
+        }
+
+    ];
+
     return (
         <>
-            <Box pb={10}>
-                <Text>ホーム / お探しのページは見つかりません</Text>
+            <Box pb={5}>
+                <BasicBreadCrumb urls={ urls } />
             </Box>
 
             <Box>
                 <Center pb={5}>
-                    <Heading as='h1' fontSize='xl'>お探しのページは見つかりません</Heading>
+                    <Title>{ title }</Title>
                 </Center>
 
                 <Center pb={5}>
@@ -19,7 +36,10 @@ export const NotFound: FC = memo(() => {
                 </Center>
 
                 <Center>
-                    <Link href='/'>トップページへ戻る</Link>
+                    {/* <Link href='/'>トップページへ戻る</Link> */}
+                    <LinkButton
+                        href='/'
+                    >トップページへ戻る</LinkButton>
                 </Center>
             </Box>
         </>
