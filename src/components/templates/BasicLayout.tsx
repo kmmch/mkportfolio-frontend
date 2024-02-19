@@ -12,15 +12,19 @@ export const BasicLayout: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Header />
+            <Box backgroundColor='black' p={3}>
+                <Box backgroundColor='white' borderRadius={5}>
+                    <Header />
 
-            <Box py={5}>
-                <BasicContainer>
-                    { children }
-                </BasicContainer>
+                    <Box py={5}>
+                        <BasicContainer>
+                            { children }
+                        </BasicContainer>
+                    </Box>
+
+                    <Footer />
+                </Box>
             </Box>
-
-            <Footer />
         </>
     );
 });
