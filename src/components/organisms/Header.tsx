@@ -7,7 +7,7 @@ export const Header: FC = memo(() => {
         <>
             {/* <Box backgroundColor='gray.400'>
                 <BasicContainer bColor='gray.300'> */}
-            <Box>
+            <Box py={7}>
                 <BasicContainer>
                     <Center>
                         <Heading as='h1'>Mochiken's Portfolio</Heading>
