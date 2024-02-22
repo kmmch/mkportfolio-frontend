@@ -1,7 +1,7 @@
 import { FC, ReactNode, memo } from "react";
 import { Header } from "../organisms/Header";
 import { Footer } from "../organisms/Footer";
-import { Box, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { BasicContainer } from "../atoms/BasicContainer";
 
 type Props = {
@@ -12,7 +12,7 @@ export const BasicLayout: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Box backgroundColor='black' p={3}>
+            <Box backgroundColor='gray.700' py={5} px={3}>
                 <Box backgroundColor='white' borderRadius={5}>
                     <Header />
 

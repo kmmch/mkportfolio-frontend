@@ -1,5 +1,13 @@
 import { FC, memo } from "react";
-import { Box, Center, Heading, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Image, Link, Text,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure, } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -8,6 +16,9 @@ import { LinkButton } from "../atoms/LinkButton";
 
 
 export const Home: FC = memo(() => {
+
+    // const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (
         <>
             <Section>
@@ -45,10 +56,27 @@ export const Home: FC = memo(() => {
 
             </Section>
 
-            <Section 
+            {/* <Section 
                 title='WORK'
-                description='制作物'
+                description='実績'
             >
+                <Button onClick={onOpen}>Open Modal</Button>
+                <Modal isOpen={isOpen} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalHeader>Modal Title</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                            aaaaaaa
+                        </ModalBody>
+                         <ModalFooter>
+                            <Button colorScheme='blue' mr={3} onClick={onClose}>
+                                Close
+                            </Button>
+                            <Button variant='ghost'>Secondary Action</Button>
+                        </ModalFooter>
+                    </ModalContent>
+                </Modal>
                 <Box my={5}>
                     <Heading as='h3' fontSize='2xl'>Masaya Kemmochi Portfolio</Heading>
                     <Text>当サイトです。</Text>
@@ -82,23 +110,29 @@ export const Home: FC = memo(() => {
                     <Text>使用技術：HTML, CSS, Sass, Javascript, GitHub, Netlify</Text>
                 </Box>
 
-            </Section>
+            </Section> */}
 
-            <Section 
+            {/* <Section 
                 title='SKILL'
                 description='スキルセット'
             >
                 <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>プログラミング言語 / フレームワーク</Heading>
-                    <Heading as='h4' fontSize='xl'>フロントエンド</Heading>
+                    <Heading as='h3' fontSize='2xl'>フロントエンド</Heading>
                     <Text>HTML, CSS, Sass, Bootstrap, Javascript, jQuery React, ChakraUI, TypeScript</Text>
-                    <Heading as='h4' fontSize='xl'>バックエンド</Heading>
+                </Box>
+                <Box my={5}>
+                    <Heading as='h3' fontSize='xl'>バックエンド</Heading>
                     <Text>PHP, Symfony, Python, Java</Text>
                 </Box>
 
                 <Box my={5}>
                     <Heading as='h3' fontSize='2xl'>CMS</Heading>
                     <Text>Drupal, Wordpress</Text>
+                </Box>
+
+                <Box my={5}>
+                    <Heading as='h3' fontSize='2xl'>DB</Heading>
+                    <Text>MySQL, PostgreSQL</Text>
                 </Box>
 
                 <Box my={5}>
@@ -112,12 +146,22 @@ export const Home: FC = memo(() => {
                 </Box>
 
                 <Box my={5}>
+                    <Heading as='h3' fontSize='2xl'>バージョン管理</Heading>
+                    <Text>Git, GitHub</Text>
+                </Box>
+
+                <Box my={5}>
+                    <Heading as='h3' fontSize='2xl'>オフィス系</Heading>
+                    <Text>Excel, PowerPoint, Word, GoogleSpreadSheet, GoogleSlide</Text>
+                </Box>
+
+                <Box my={5}>
                     <Heading as='h3' fontSize='2xl'>その他</Heading>
                     <Text>Figma, notion, Backlog</Text>
                 </Box>
-            </Section>
+            </Section> */}
 
-            <Section 
+            {/* <Section 
                 title='HISTORY'
                 description='経歴。'
             >
@@ -166,7 +210,7 @@ export const Home: FC = memo(() => {
                     <Text>製薬企業のMRが業務で使うツールの構築に参画。<br />
                     要件定義やメンバーの成果物レビュー、課題や品質管理など上流の業務がメイン</Text>
                 </Box>            
-            </Section>
+            </Section> */}
 
             <Section 
                 title='CONTACT'
@@ -177,7 +221,7 @@ export const Home: FC = memo(() => {
                     <Text textAlign='center'>もし私でお力添えできることがございましたら、まずはお気軽にご連絡ください。</Text>
                     <Text textAlign='center'>※現在はX（旧Twitter）のDMにて受け付けております。</Text>
                     <Text textAlign='center'>※原則2営業日以内に回答いたします。</Text>
-                    <Center>
+                    <Center mt={5}>
                         <LinkButton
                             isExternal={true}
                             href='https://twitter.com/mochiken__code'
