@@ -1,29 +1,29 @@
 import { FC, memo } from "react";
-import { Box, Button, Center, Heading, Image, Link, Text,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    useDisclosure, } from "@chakra-ui/react";
+import { 
+    Box,
+    Center,
+    Heading,
+    Image,
+    Link,
+    Text,
+} from "@chakra-ui/react";
+
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 import { Section } from "../organisms/Section";
 import { LinkButton } from "../atoms/LinkButton";
+import { WorkCardList } from "../molecules/WorkCardList";
 
 
 export const Home: FC = memo(() => {
 
-    // const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
         <>
             <Section>
                 <Image
-                    src='src/assets/myicon.png'
+                    src='public/myicon.png'
                     alt='Mochiken'
                     borderRadius='full'
                     boxSize='50%'
@@ -42,7 +42,7 @@ export const Home: FC = memo(() => {
                 
 
                 <Box my='5'>
-                    <Heading as='h2' textAlign='center'>Masaya Kemmochi</Heading>
+                    <Heading as='h2' textAlign='center'>Mochiken</Heading>
                     <Text textAlign='center'>WEBエンジニア</Text>
                 </Box>
 
@@ -56,37 +56,23 @@ export const Home: FC = memo(() => {
 
             </Section>
 
-            {/* <Section 
+            <Section 
                 title='WORK'
                 description='実績'
             >
-                <Button onClick={onOpen}>Open Modal</Button>
-                <Modal isOpen={isOpen} onClose={onClose}>
-                    <ModalOverlay />
-                    <ModalContent>
-                        <ModalHeader>Modal Title</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                            aaaaaaa
-                        </ModalBody>
-                         <ModalFooter>
-                            <Button colorScheme='blue' mr={3} onClick={onClose}>
-                                Close
-                            </Button>
-                            <Button variant='ghost'>Secondary Action</Button>
-                        </ModalFooter>
-                    </ModalContent>
-                </Modal>
-                <Box my={5}>
+                <WorkCardList />
+
+
+                {/* <Box my={5}>
                     <Heading as='h3' fontSize='2xl'>Masaya Kemmochi Portfolio</Heading>
                     <Text>当サイトです。</Text>
                     <Text>バックエンドであるDrupalからAPIを介してReactで取得・描画をしております。</Text>
                     <Text>早期公開を目指したためまずは最低限のレイアウトで公開しております。（2024/2/12現在）</Text>
                     <Text>制作期間：7日</Text>
                     <Text>使用技術：React, Typescript, ChakraUI, Drupal, GoogleAnalytics</Text>
-                </Box>
+                </Box> */}
                 
-                <Box my={5}>
+                {/* <Box my={5}>
                     <Heading as='h3' fontSize='2xl'>Mochiken BLOG</Heading>
                     <Text>日々の業務や個人開発で得た知見をまとめているブログです。</Text>
                     <Text>スピーディな公開がしたかったためSWELLテーマを使用しております。</Text>
@@ -108,9 +94,9 @@ export const Home: FC = memo(() => {
                     <Text>制作期間：3日</Text>
                     <Text>担当工程：実装、テスト、リリース</Text>
                     <Text>使用技術：HTML, CSS, Sass, Javascript, GitHub, Netlify</Text>
-                </Box>
+                </Box> */}
 
-            </Section> */}
+            </Section>
 
             {/* <Section 
                 title='SKILL'
