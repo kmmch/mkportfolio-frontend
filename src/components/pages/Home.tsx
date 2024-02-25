@@ -31,7 +31,7 @@ export const Home: FC = memo(() => {
         <>
             <Section>
                 <Image
-                    src='myicon.png'
+                    src='./myicon.png'
                     alt='Mochiken'
                     borderRadius='full'
                     boxSize='50%'
