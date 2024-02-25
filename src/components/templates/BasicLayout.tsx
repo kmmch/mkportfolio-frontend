@@ -12,8 +12,8 @@ export const BasicLayout: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Box backgroundColor='gray.700' py={5} px={3}>
-                <Box backgroundColor='white' borderRadius={5}>
+            <Box backgroundColor='blackAlpha.800' py={5} px={3}>
+                <Box backgroundColor='white' borderRadius={35}>
                     <Header />
 
                     <Box py={5}>
@@ -22,8 +22,9 @@ export const BasicLayout: FC<Props> = memo((props) => {
                         </BasicContainer>
                     </Box>
 
-                    <Footer />
+                    {/* <Footer /> */}
                 </Box>
+                <Footer />
             </Box>
         </>
     );

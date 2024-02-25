@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import { FC, memo } from "react";
-import { StyledBr } from "../styled/StyledBr";
+// import { StyledBr } from "../styled/StyledBr";
 
 
 export const Copyright: FC = memo(() => {
@@ -13,7 +13,8 @@ export const Copyright: FC = memo(() => {
             <Text
                 textAlign='center'
                 fontSize='sm'
-            >COPYRIGHT © {year} MASAYA KEMMOCHI. <StyledBr />ALL RIGHTS RESERVED.</Text>
+                color='white'
+            >COPYRIGHT © {year} MASAYA KEMMOCHI. <br />ALL RIGHTS RESERVED.</Text>
         </>
     );
 });
