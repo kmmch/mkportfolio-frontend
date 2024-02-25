@@ -19,6 +19,7 @@ import {
     CardBody
 } from "@chakra-ui/react";
 import { work } from "../types/CustomType";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 
 type Props = {
@@ -32,7 +33,7 @@ export const WorkCard: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Center my={3}>
+            <Center mt={3} mb={5}>
                 <Link onClick={onOpen}>
                     <Card maxW='sm'>
                         <CardBody>
@@ -40,7 +41,7 @@ export const WorkCard: FC<Props> = memo((props) => {
                                 src={work.thumbnail}
                                 alt={work.title}
                                 borderRadius='lg'
-                                maxW='350px'
+                                // maxW='100%'
                             />
                             <Heading as='h3' fontSize='xl' textAlign='center' mt={3}>{work.title}</Heading>
                             <Text textAlign='center'>{work.description}</Text>
@@ -54,7 +55,7 @@ export const WorkCard: FC<Props> = memo((props) => {
                     <ModalHeader>{work.title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {work.body}
+                        <Text>実際の作品は<Link href={work.url} isExternal textDecoration='underline'>こちらから<ExternalLinkIcon mx='2px' /></Link>ご確認ください。</Text>
                     </ModalBody>
                      <ModalFooter>
                         <Button mr={3} onClick={onClose}>Close</Button>

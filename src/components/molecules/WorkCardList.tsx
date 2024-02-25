@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 
 
-import { WORK } from "../../data/work";
+import { WORK } from "../../data/works";
 import { WorkCard } from "./WorkCard";
 
 

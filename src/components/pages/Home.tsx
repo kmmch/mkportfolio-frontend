@@ -2,9 +2,14 @@ import { FC, memo } from "react";
 import { 
     Box,
     Center,
+    Flex,
     Heading,
     Image,
     Link,
+    Tab,
+    TabList,
+    TabPanels,
+    Tabs,
     Text,
 } from "@chakra-ui/react";
 
@@ -14,6 +19,9 @@ import { FaXTwitter } from "react-icons/fa6";
 import { Section } from "../organisms/Section";
 import { LinkButton } from "../atoms/LinkButton";
 import { WorkCardList } from "../molecules/WorkCardList";
+import { SkillCardList } from "../molecules/SkillCardList";
+import { Level } from "../atoms/Level";
+import { BACK_SKILL_DATA, FRONT_SKILL_DATA, OTHER_SKILL_DATA } from "../../data/skills";
 
 
 export const Home: FC = memo(() => {
@@ -63,54 +71,33 @@ export const Home: FC = memo(() => {
                 <WorkCardList />
             </Section>
 
-            {/* <Section 
+            <Section 
                 title='SKILL'
                 description='スキルセット'
             >
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>フロントエンド</Heading>
-                    <Text>HTML, CSS, Sass, Bootstrap, Javascript, jQuery React, ChakraUI, TypeScript</Text>
-                </Box>
-                <Box my={5}>
-                    <Heading as='h3' fontSize='xl'>バックエンド</Heading>
-                    <Text>PHP, Symfony, Python, Java</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>CMS</Heading>
-                    <Text>Drupal, Wordpress</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>DB</Heading>
-                    <Text>MySQL, PostgreSQL</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>クラウド</Heading>
-                    <Text>AWS（VPC, EC2, RDS, Route53, S3, Lightsail, Amplify）</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>マーケティング</Heading>
-                    <Text>GoogleAnalytics, GoogleSearchConsole, GoogleTagManager</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>バージョン管理</Heading>
-                    <Text>Git, GitHub</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>オフィス系</Heading>
-                    <Text>Excel, PowerPoint, Word, GoogleSpreadSheet, GoogleSlide</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>その他</Heading>
-                    <Text>Figma, notion, Backlog</Text>
-                </Box>
-            </Section> */}
+                <Flex justifyContent="center" mb="20px">
+                    <Box>
+                        <Box mb="2"><Level level={1} /><Text display="inline-block">興味がある</Text></Box>
+                        <Box mb="2"><Level level={2} /><Text display="inline-block">学んだことがある</Text></Box>
+                        <Box mb="2"><Level level={3} /><Text display="inline-block">実務で使ったことがある</Text></Box>
+                        <Box mb="2"><Level level={4} /><Text display="inline-block">実務での使用、指導ができる</Text></Box>
+                    </Box>
+                </Flex>
+                <Tabs isFitted variant='enclosed'
+                    px="3"
+                >
+                    <TabList mb='1em'>
+                        <Tab>Front-End</Tab>
+                        <Tab>Back-End</Tab>
+                        <Tab>Other</Tab>
+                    </TabList>
+                    <TabPanels>
+                        <SkillCardList skills={FRONT_SKILL_DATA}/>
+                        <SkillCardList skills={BACK_SKILL_DATA}/>
+                        <SkillCardList skills={OTHER_SKILL_DATA}/>
+                    </TabPanels>
+                </Tabs>
+            </Section>
 
             {/* <Section 
                 title='HISTORY'
@@ -169,9 +156,9 @@ export const Home: FC = memo(() => {
             >
                 <Box my={5}>
                     <Text textAlign='center'>ここまでご覧いただきありがとうございます。</Text>
-                    <Text textAlign='center'>もし私でお力添えできることがございましたら、まずはお気軽にご連絡ください。</Text>
-                    <Text textAlign='center'>※現在はX（旧Twitter）のDMにて受け付けております。</Text>
-                    <Text textAlign='center'>※原則2営業日以内に回答いたします。</Text>
+                    <Text textAlign='center'>もし私でお力添えできることがございましたら、<br />まずはお気軽にご連絡ください。</Text>
+                    <Text fontSize={'sm'} textAlign='center' mt={'2'}>※現在はXのDMにて受け付けております。</Text>
+                    <Text fontSize={'sm'} textAlign='center'>※原則2営業日以内に回答いたします。</Text>
                     <Center mt={5}>
                         <LinkButton
                             isExternal={true}

@@ -10,11 +10,18 @@ export const BasicContainer: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Container
+            {/* <Container
                 maxW={{
                     base: "90%",
                     lg: "900px"
                 }}
+                backgroundColor={bColor}
+            > */}
+            <Container
+                w={{
+                    base: "90%",
+                }}
+                maxW={{base: "400px"}}
                 backgroundColor={bColor}
             >
                 { children }

@@ -2,11 +2,11 @@ import { work } from "../components/types/CustomType";
 
 export const WORK:Array<work> = [
     {
-        title: "Mochiken Portfolio",
-        description: "当サイト",
-        thumbnail: "public/work/MochikenPortfolio.png",
-        url: "/",
-        body: "当サイトです。<br />バックエンドであるDrupalからAPIを介してReactで取得・描画をしております。<br />早期公開を目指したためまずは最低限のレイアウトで公開しております。（2024/2/12現在）<br />制作期間：7日<br />使用技術：React, Typescript, ChakraUI, Drupal, GoogleAnalytics"
+        title: "Mochiken BLOG",
+        description: "もちけんの個人技術ブログ",
+        thumbnail: "public/work/MochikenBlog.png",
+        url: "https://blog.mochiken.work/",
+        body: "実務や自己研鑽で学んだことを発信する技術ブログです"
     },
     {
         title: "まつかわ自然農園",
