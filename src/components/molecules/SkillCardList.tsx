@@ -1,4 +1,4 @@
-import { Box, Flex, TabPanel } from "@chakra-ui/react";
+import { Box, TabPanel } from "@chakra-ui/react";
 import { FC, memo } from "react";
 
 import { SkillCard } from "./SkillCard";
