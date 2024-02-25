@@ -61,41 +61,6 @@ export const Home: FC = memo(() => {
                 description='実績'
             >
                 <WorkCardList />
-
-
-                {/* <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>Masaya Kemmochi Portfolio</Heading>
-                    <Text>当サイトです。</Text>
-                    <Text>バックエンドであるDrupalからAPIを介してReactで取得・描画をしております。</Text>
-                    <Text>早期公開を目指したためまずは最低限のレイアウトで公開しております。（2024/2/12現在）</Text>
-                    <Text>制作期間：7日</Text>
-                    <Text>使用技術：React, Typescript, ChakraUI, Drupal, GoogleAnalytics</Text>
-                </Box> */}
-                
-                {/* <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>Mochiken BLOG</Heading>
-                    <Text>日々の業務や個人開発で得た知見をまとめているブログです。</Text>
-                    <Text>スピーディな公開がしたかったためSWELLテーマを使用しております。</Text>
-                    <Text>制作期間：1日</Text>
-                    <Text>使用技術：HTML, CSS, Sass, Javascript, PHP, Wordpress, GitHub, GoogleAnalytics</Text>
-                </Box>
-                
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>【架空案件】農園LP</Heading>
-                    <Text>海や山、森に囲まれた緑豊かな大地で農園を営む会社さまをイメージしてランディングページを作成しました。</Text>
-                    <Text>制作期間：3日</Text>
-                    <Text>担当工程：デザイン、実装、テスト、リリース</Text>
-                    <Text>使用技術：HTML, CSS, Sass, Javascript, jQuery, GitHub, Netlify, GoogleForm</Text>
-                </Box>
-
-                <Box my={5}>
-                    <Heading as='h3' fontSize='2xl'>【架空案件】民泊紹介サービスLP</Heading>
-                    <Text>世界各国の民泊を紹介するサービスのランディングページを作成しました。</Text>
-                    <Text>制作期間：3日</Text>
-                    <Text>担当工程：実装、テスト、リリース</Text>
-                    <Text>使用技術：HTML, CSS, Sass, Javascript, GitHub, Netlify</Text>
-                </Box> */}
-
             </Section>
 
             {/* <Section 

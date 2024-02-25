@@ -8,4 +8,5 @@ export type work = {
     description: string;
     thumbnail: string;
     url: string;
+    body: string;
 };
