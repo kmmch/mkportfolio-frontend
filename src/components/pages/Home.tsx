@@ -31,14 +31,12 @@ export const Home: FC = memo(() => {
         <>
             <Section>
                 <Image
-                    src='public/myicon.png'
+                    src='myicon.png'
                     alt='Mochiken'
                     borderRadius='full'
                     boxSize='50%'
                     m='auto'
                 />
-
-
                 <Center my='5'>
                     <Link href='https://github.com/kmmch' target='_blank'>
                         <FaGithub size="2rem" />
