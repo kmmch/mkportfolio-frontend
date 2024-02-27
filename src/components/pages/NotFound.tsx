@@ -3,12 +3,12 @@ import { FC, memo } from "react";
 import { StyledBr } from "../styled/StyledBr";
 import { LinkButton } from "../atoms/LinkButton";
 import { BasicBreadCrumb } from "../molecules/BasicBreadcrumb";
-import { url } from "../types/CustomType";
+import { Url } from "../../types/url";
 import { Title } from "../atoms/Title";
 
 export const NotFound: FC = memo(() => {
     const title = "お探しのページは見つかりません";
-    const urls: Array<url> = [
+    const urls: Array<Url> = [
         {
             link: "/", 
             title: "ホーム"

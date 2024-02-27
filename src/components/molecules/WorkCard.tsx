@@ -18,12 +18,12 @@ import {
     Card,
     CardBody
 } from "@chakra-ui/react";
-import { work } from "../types/CustomType";
+import { Work } from "../../types/work";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 
 type Props = {
-    work: work;
+    work: Work;
 };
 
 export const WorkCard: FC<Props> = memo((props) => {

@@ -1,11 +1,11 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { FC, memo } from "react";
 
-import { url } from "../types/CustomType";
+import { Url } from "../../types/url";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 type Props = {
-    urls: Array<url>;
+    urls: Array<Url>;
 };
 
 export const BasicBreadCrumb: FC<Props> = memo((props) => {
@@ -13,7 +13,6 @@ export const BasicBreadCrumb: FC<Props> = memo((props) => {
 
     return (
         <>
-            { console.log(urls) }
             <Breadcrumb 
                 spacing='8px'
                 separator={<ChevronRightIcon color='gray.500' />}

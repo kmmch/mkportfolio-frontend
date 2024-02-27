@@ -1,9 +1,4 @@
-export type url = {
-    link: string;
-    title: string;
-};
-
-export type work = {
+export type Work = {
     title: string;
     description: string;
     thumbnail: string;

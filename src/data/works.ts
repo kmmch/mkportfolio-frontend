@@ -1,6 +1,6 @@
-import { work } from "../components/types/CustomType";
+import { Work } from "../types/work";
 
-export const WORK:Array<work> = [
+export const WORK:Array<Work> = [
     {
         title: "Mochiken BLOG",
         description: "もちけんの個人技術ブログ",
