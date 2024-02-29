@@ -1,7 +1,7 @@
 export type Work = {
     title: string;
-    description: string;
-    thumbnail: string;
-    url: string;
-    body: string;
+    field_description: string;
+    field_img: string;
+    field_url: string;
+    field_body: string;
 };

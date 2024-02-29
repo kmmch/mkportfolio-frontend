@@ -38,13 +38,13 @@ export const WorkCard: FC<Props> = memo((props) => {
                     <Card maxW='sm'>
                         <CardBody>
                             <Image
-                                src={work.thumbnail}
+                                src={`https://api.mochiken.work${work.field_img}`}
                                 alt={work.title}
                                 borderRadius='lg'
                                 // maxW='100%'
                             />
                             <Heading as='h3' fontSize='xl' textAlign='center' mt={3}>{work.title}</Heading>
-                            <Text textAlign='center'>{work.description}</Text>
+                            <Text textAlign='center'>{work.field_description}</Text>
                         </CardBody>
                     </Card>
                 </Link>
@@ -55,7 +55,7 @@ export const WorkCard: FC<Props> = memo((props) => {
                     <ModalHeader>{work.title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Text>実際の作品は<Link href={work.url} isExternal textDecoration='underline'>こちらから<ExternalLinkIcon mx='2px' /></Link>ご確認ください。</Text>
+                        <Text>実際の作品は<Link href={work.field_url} isExternal textDecoration='underline'>こちらから<ExternalLinkIcon mx='2px' /></Link>ご確認ください。</Text>
                     </ModalBody>
                      <ModalFooter>
                         <Button mr={3} onClick={onClose}>Close</Button>
