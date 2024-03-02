@@ -16,7 +16,7 @@ import { WorkCardList } from "../molecules/WorkCardList";
 import { SkillCardList } from "../molecules/SkillCardList";
 import { Level } from "../atoms/Level";
 import { TopProfile } from "../molecules/TopProfile";
-
+import { ContactForm } from "../molecules/ContactForm";
 
 export const Home: FC = memo(() => {
 
@@ -129,6 +129,7 @@ export const Home: FC = memo(() => {
                         >Xはこちらから</LinkButton>
                     </Center>
                 </Box>
+                <ContactForm />
             </Section>
         </>
     );
