@@ -56,9 +56,9 @@ export const Home: FC = memo(() => {
                         <Tab>Other</Tab>
                     </TabList>
                     <TabPanels>
-                        <SkillCardList skills={FRONT_SKILL_DATA}/>
-                        <SkillCardList skills={BACK_SKILL_DATA}/>
-                        <SkillCardList skills={OTHER_SKILL_DATA}/>
+                        <SkillCardList skill_type="front"/>
+                        <SkillCardList skill_type="back"/>
+                        <SkillCardList skill_type="other"/>
                     </TabPanels>
                 </Tabs>
             </Section>

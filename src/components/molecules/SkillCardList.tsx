@@ -1,20 +1,20 @@
-import { Box, TabPanel } from "@chakra-ui/react";
-import { FC, memo } from "react";
+import { Box, Center, Spinner, TabPanel } from "@chakra-ui/react";
+import { FC, memo, useEffect } from "react";
 
 import { SkillCard } from "./SkillCard";
+import { useSkills } from "../../hooks/useSkills";
 
 type Props = {
-    skills: Array<{ 
-        title: string; 
-        img: string; 
-        level: number; 
-        tags: string[]; 
-    }>;
+    skill_type: string;
 }
 
 export const SkillCardList:FC<Props> = memo((props) => {
-    const { skills } = props;
+    const { skill_type } = props;
 
+    const { getSkills, loading, skills } = useSkills();
+
+    useEffect(() => getSkills(skill_type), []);
+    
     return (
         <>
             <TabPanel 
@@ -35,22 +35,26 @@ export const SkillCardList:FC<Props> = memo((props) => {
                         height: '120px'}
                     }}
                 > */}
-                <Box
-                    
-                >
-                    {skills.map((skill, index) => {
-                        return(
-                            <Box key={index}>
-                                <SkillCard
-                                    img={skill.img}
-                                    title={skill.title}
-                                    level={skill.level}
-                                    tags={skill.tags}
-                                />
-                            </Box>
+                {loading ? (
+                    <Center h="100vh">
+                        <Spinner />
+                    </Center>
+                ) : 
+                    skills && skills.map((skill, key) => {
+                        const tags=skill.field_skill_field.split(",");
+                        return (
+                            <>
+                                <Box key={key}>
+                                    <SkillCard
+                                        img={skill.field_thumbnail}
+                                        title={skill.name}
+                                        level={Number(skill.field_level)}
+                                        tags={tags}
+                                    />
+                                </Box>
+                            </>
                         );
                     })}
-                </Box>
             </TabPanel>
         </>
     );

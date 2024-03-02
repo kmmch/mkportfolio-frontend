@@ -22,7 +22,7 @@ export const SkillCard:FC<Props> = memo((props) => {
                 <CardBody>
                     <Flex justifyContent="start" alignItems="center">
                         <Image
-                            src={img}
+                            src={`https://api.mochiken.work${img}`}
                             alt={title}
                             h="50px"
                             w="50px"
