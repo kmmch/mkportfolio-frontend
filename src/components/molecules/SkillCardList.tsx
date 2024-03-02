@@ -1,5 +1,5 @@
-import { Box, Center, Spinner, TabPanel } from "@chakra-ui/react";
-import { FC, memo, useEffect } from "react";
+import { Center, Spinner, TabPanel } from "@chakra-ui/react";
+import { FC, Fragment, memo, useEffect } from "react";
 
 import { SkillCard } from "./SkillCard";
 import { useSkills } from "../../hooks/useSkills";
@@ -43,16 +43,14 @@ export const SkillCardList:FC<Props> = memo((props) => {
                     skills && skills.map((skill, key) => {
                         const tags=skill.field_skill_field.split(",");
                         return (
-                            <>
-                                <Box key={key}>
+                                <Fragment key={key}>
                                     <SkillCard
                                         img={skill.field_thumbnail}
                                         title={skill.name}
                                         level={Number(skill.field_level)}
                                         tags={tags}
                                     />
-                                </Box>
-                            </>
+                                </Fragment>
                         );
                     })}
             </TabPanel>
