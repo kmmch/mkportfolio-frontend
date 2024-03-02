@@ -15,7 +15,6 @@ import { LinkButton } from "../atoms/LinkButton";
 import { WorkCardList } from "../molecules/WorkCardList";
 import { SkillCardList } from "../molecules/SkillCardList";
 import { Level } from "../atoms/Level";
-import { BACK_SKILL_DATA, FRONT_SKILL_DATA, OTHER_SKILL_DATA } from "../../data/skills";
 import { TopProfile } from "../molecules/TopProfile";
 
 
