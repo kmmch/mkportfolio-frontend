@@ -14,7 +14,6 @@ export const ContactForm: FC = memo(() => {
     // CSRFトークン取得
     const { getCsrfToken, csrf_token } = useCsrfToken();
     useEffect(() => getCsrfToken(), []);
-    console.log(csrf_token);
 
     // お問合せを機能させるための準備
     const {
@@ -26,17 +25,24 @@ export const ContactForm: FC = memo(() => {
 
     // お問合せが送信された時の動作
     function onSubmit(values: any) {
+        // has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.
+
+        // has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
+        values = {
+            "webform_id": "custom_contact",
+            "email": values.email
+        }
         const headers = {
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': csrf_token
+            'X-CSRF-Token': csrf_token,
+            'Content-Type': 'application/json' 
         }
         return new Promise<void>((resolve) => {
             setTimeout(async () => {
-                // alert(JSON.stringify(values, null, 2));
-                const response = await axios.post(
+                await axios.post(
                     'https://api.mochiken.work/webform_rest/submit',
                     values,
-                    {headers: headers});
+                    {headers: headers,},
+                );
                 resolve();
             }, 1500)
         })
@@ -63,7 +69,7 @@ export const ContactForm: FC = memo(() => {
                 })}
             />
             <ControlledInput
-                label='自己紹介'
+                label='お問い合わせ内容'
                 errors={errors}
                 as={Textarea}
                 isRequired
