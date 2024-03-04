@@ -120,14 +120,7 @@ export const Home: FC = memo(() => {
                 <Box my={5}>
                     <Text textAlign='center'>ここまでご覧いただきありがとうございます。</Text>
                     <Text textAlign='center'>もし私でお力添えできることがございましたら、<br />まずはお気軽にご連絡ください。</Text>
-                    <Text fontSize={'sm'} textAlign='center' mt={'2'}>※現在はXのDMにて受け付けております。</Text>
                     <Text fontSize={'sm'} textAlign='center'>※原則2営業日以内に回答いたします。</Text>
-                    <Center mt={5}>
-                        <LinkButton
-                            isExternal={true}
-                            href='https://twitter.com/mochiken__code'
-                        >Xはこちらから</LinkButton>
-                    </Center>
                 </Box>
                 <ContactForm />
             </Section>

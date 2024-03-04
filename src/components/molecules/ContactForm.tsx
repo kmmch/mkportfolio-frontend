@@ -1,15 +1,21 @@
-import { FC, memo, useEffect } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { useForm } from 'react-hook-form'
 import {
   Button,
+  Center,
   Textarea
 } from '@chakra-ui/react'
 
 import { ControlledInput } from "../atoms/ContorolledInput";
+import { ThanksMessage } from "../atoms/ThanksMessage";
 import { useCsrfToken } from "../../hooks/useCsrfToken";
 import axios from "axios";
 
 export const ContactForm: FC = memo(() => {
+    // お問合せフォームを表示するか、送信完了メッセージを表示するかを管理するステート
+    // true: お問合せフォームを表示する
+    // false: 送信完了メッセージを表示する
+    const [visible, setVisible] = useState(true);
 
     // CSRFトークン取得
     const { getCsrfToken, csrf_token } = useCsrfToken();
@@ -25,13 +31,13 @@ export const ContactForm: FC = memo(() => {
 
     // お問合せが送信された時の動作
     function onSubmit(values: any) {
-        // has been blocked by CORS policy: Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response.
-
-        // has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
         values = {
             "webform_id": "custom_contact",
-            "email": values.email
+            "email": values.email,
+            "name": values.name,
+            "body": values.body,
         }
+
         const headers = {
             'X-CSRF-Token': csrf_token,
             'Content-Type': 'application/json' 
@@ -41,45 +47,53 @@ export const ContactForm: FC = memo(() => {
                 await axios.post(
                     'https://api.mochiken.work/webform_rest/submit',
                     values,
-                    {headers: headers,},
+                    {headers: headers},
                 );
                 resolve();
+                setVisible(!visible);
             }, 1500)
         })
     }
 
     // お問合せのHTMLをレンダリング
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <ControlledInput
-                label='ユーザー名'
-                errors={errors}
-                isRequired
-                {...register('name', {
-                    required: 'お名前を入力してください',
-                })}
-            />
-            <ControlledInput
-                label='メールアドレス'
-                type='email'
-                errors={errors}
-                isRequired
-                {...register('email', {
-                    required: 'メールアドレスを入力してください',
-                })}
-            />
-            <ControlledInput
-                label='お問い合わせ内容'
-                errors={errors}
-                as={Textarea}
-                isRequired
-                {...register('body', {
-                    required: 'お問い合わせ内容を入力してください',
-                })}
-            />
-            <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
-                Submit
-            </Button>
-      </form>
+        <>
+        {!visible && <ThanksMessage />}
+        {visible &&
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <ControlledInput
+                    label='ユーザー名'
+                    errors={errors}
+                    isRequired
+                    {...register('name', {
+                        required: 'お名前を入力してください',
+                    })}
+                />
+                <ControlledInput
+                    label='メールアドレス'
+                    type='email'
+                    errors={errors}
+                    isRequired
+                    {...register('email', {
+                        required: 'メールアドレスを入力してください',
+                    })}
+                />
+                <ControlledInput
+                    label='お問い合わせ内容'
+                    errors={errors}
+                    as={Textarea}
+                    isRequired
+                    {...register('body', {
+                        required: 'お問い合わせ内容を入力してください',
+                    })}
+                />
+                <Center>
+                    <Button mt={4} w={'100%'} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+                        Submit
+                    </Button>
+                </Center>
+            </form>
+        }
+      </>
     );
 });
