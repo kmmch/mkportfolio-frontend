@@ -1,6 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
 import { FC, memo } from "react";
 
+
 export const ThanksMessage: FC = memo(() => {
     return (
         <>

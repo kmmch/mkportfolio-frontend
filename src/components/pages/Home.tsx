@@ -1,7 +1,6 @@
 import { FC, memo } from "react";
 import { 
     Box,
-    Center,
     Flex,
     Tab,
     TabList,
@@ -11,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 
 import { Section } from "../organisms/Section";
-import { LinkButton } from "../atoms/LinkButton";
 import { WorkCardList } from "../molecules/WorkCardList";
 import { SkillCardList } from "../molecules/SkillCardList";
 import { Level } from "../atoms/Level";
