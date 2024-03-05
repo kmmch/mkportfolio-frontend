@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { Profile } from "../types/profile";
 import { useMessage } from "./useMessage";
+import { BACKEND_ORIGIN } from "../config/settings";
 
 export const useProfile = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -13,7 +14,7 @@ export const useProfile = () => {
   const getProfile = useCallback(() => {
     setLoading(true);
     axios
-      .get<Array<Profile>>("https://api.mochiken.work/resource/profile")
+      .get<Array<Profile>>(`${ BACKEND_ORIGIN }/resource/profile`)
       .then((res) => {
         const data = res.data[0];
         const profile:Profile = {

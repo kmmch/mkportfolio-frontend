@@ -1,5 +1,6 @@
 import { FC, memo, useEffect, useState } from "react";
-import { useForm } from 'react-hook-form'
+import axios from "axios";
+import { useForm } from 'react-hook-form';
 import {
   Button,
   Center,
@@ -9,7 +10,7 @@ import {
 import { ControlledInput } from "../atoms/ContorolledInput";
 import { ThanksMessage } from "../atoms/ThanksMessage";
 import { useCsrfToken } from "../../hooks/useCsrfToken";
-import axios from "axios";
+import { BACKEND_ORIGIN } from "../../config/settings";
 
 export const ContactForm: FC = memo(() => {
     // お問合せフォームを表示するか、送信完了メッセージを表示するかを管理するステート
@@ -45,7 +46,7 @@ export const ContactForm: FC = memo(() => {
         return new Promise<void>((resolve) => {
             setTimeout(async () => {
                 await axios.post(
-                    'https://api.mochiken.work/webform_rest/submit',
+                    `${ BACKEND_ORIGIN }/webform_rest/submit`,
                     values,
                     {headers: headers},
                 );

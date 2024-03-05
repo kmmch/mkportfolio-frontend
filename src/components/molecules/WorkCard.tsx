@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { Work } from "../../types/work";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { BACKEND_ORIGIN } from "../../config/settings";
 
 
 type Props = {
@@ -38,10 +39,9 @@ export const WorkCard: FC<Props> = memo((props) => {
                     <Card maxW='sm'>
                         <CardBody>
                             <Image
-                                src={`https://api.mochiken.work${work.field_img}`}
+                                src={`${ BACKEND_ORIGIN }${work.field_img}`}
                                 alt={work.title}
                                 borderRadius='lg'
-                                // maxW='100%'
                             />
                             <Heading as='h3' fontSize='xl' textAlign='center' mt={3}>{work.title}</Heading>
                             <Text textAlign='center'>{work.field_description}</Text>

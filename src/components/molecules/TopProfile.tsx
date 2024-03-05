@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from "react";
+import { FC, Fragment, memo, useEffect } from "react";
 import { 
     Box,
     Center,
@@ -10,8 +10,9 @@ import {
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
 import { useProfile } from "../../hooks/useProfile";
-import React from "react";
+import { BACKEND_ORIGIN } from "../../config/settings";
 
 
 export const TopProfile: FC = memo(() => {
@@ -29,7 +30,7 @@ export const TopProfile: FC = memo(() => {
             ) : (
                 <>
                     <Image
-                        src={ profile && `https://api.mochiken.work${profile.field_img}` }
+                        src={ profile && `${ BACKEND_ORIGIN }${profile.field_img}` }
                         alt='Mochiken'
                         borderRadius='full'
                         boxSize='50%'
@@ -51,9 +52,9 @@ export const TopProfile: FC = memo(() => {
                     </Box>
                     <Box my='5'>
                         { profile && profile.field_body.map((body) => (
-                            <React.Fragment key={body}>
+                            <Fragment key={body}>
                                 <Text>{ body }</Text>
-                            </React.Fragment>
+                            </Fragment>
                         ))}
                     </Box>
                 </>

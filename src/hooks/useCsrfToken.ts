@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 
 import { useMessage } from "./useMessage";
+import { BACKEND_ORIGIN } from "../config/settings";
 
 export const useCsrfToken = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -12,7 +13,7 @@ export const useCsrfToken = () => {
   const getCsrfToken = useCallback(() => {
     setLoading(true);
     axios
-      .get<Array<string>>("https://api.mochiken.work/session/token")
+      .get<Array<string>>(`${ BACKEND_ORIGIN }/session/token`)
       .then((res) => {
         setCsrfToken(res.data);
       })

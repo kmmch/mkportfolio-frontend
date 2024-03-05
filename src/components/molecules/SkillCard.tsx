@@ -2,6 +2,7 @@ import { Box, Card, CardBody, Image, Heading, Flex } from "@chakra-ui/react";
 import { FC, memo } from "react";
 import { Level } from "../atoms/Level";
 import { Tag } from "../atoms/Tag";
+import { BACKEND_ORIGIN } from "../../config/settings";
 
 type Props = {
     img: string;
@@ -16,13 +17,12 @@ export const SkillCard:FC<Props> = memo((props) => {
     return (
         <>
             <Card
-                // w="331.11px"
                 my="3"
             >
                 <CardBody>
                     <Flex justifyContent="start" alignItems="center">
                         <Image
-                            src={`https://api.mochiken.work${img}`}
+                            src={`${ BACKEND_ORIGIN }${img}`}
                             alt={title}
                             h="50px"
                             w="50px"

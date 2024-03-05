@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { useMessage } from "./useMessage";
 import { Skill } from "../types/skill";
+import { BACKEND_ORIGIN } from "../config/settings";
 
 export const useSkills = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -13,7 +14,7 @@ export const useSkills = () => {
   const getSkills = useCallback((type:string) => {
     setLoading(true);
     axios
-      .get<Array<Skill>>(`https://api.mochiken.work/resource/term/${type}`)
+      .get<Array<Skill>>(`${ BACKEND_ORIGIN }/resource/term/${type}`)
       .then((res) => {
         setSkills(res.data);
       })
