@@ -9,7 +9,7 @@ export const Footer: FC = memo(() => {
         <>
             {/* <Box backgroundColor='gray.600'>
                 <BasicContainer bColor='gray.500'> */}
-            <Box py={7}>
+            <Box py={7} backgroundColor='gray.600'>
                 <BasicContainer>
                     <Copyright />
                 </BasicContainer>
