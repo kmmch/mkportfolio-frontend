@@ -8,6 +8,9 @@ export default defineConfig({
   // net::ERR_ABORTED 504 (Outdated Optimize Dep) Vite
   // chakra net::ERR_ABORTED 504 (Outdated Optimize Dep)
   optimizeDeps: {
-    exclude: ['js-big-decimal']
+    exclude: [
+      'js-big-decimal',
+      'framer-motion'
+    ]
   }
 });
