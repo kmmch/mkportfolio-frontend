@@ -2,7 +2,6 @@ import { FC, memo } from "react";
 
 import { 
     Button,
-    Center,
     Heading,
     Image,
     Link,
@@ -16,7 +15,8 @@ import {
     ModalBody,
     ModalCloseButton,
     Card,
-    CardBody
+    CardBody,
+    VStack
 } from "@chakra-ui/react";
 import { Work } from "../../types/work";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
@@ -34,16 +34,24 @@ export const WorkCard: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Link onClick={onOpen} className="cardlink">
-                <Card className="card">
+            <Link 
+                onClick={onOpen}
+                h={'300px'}
+            >
+                <Card h={'100%'}>
                     <CardBody>
-                        <Image
-                            src={`${ BACKEND_ORIGIN }${work.field_img}`}
-                            alt={work.title}
-                            borderRadius='lg'
-                        />
-                        <Heading as='h3' fontSize='xl' textAlign='center' mt={3}>{work.title}</Heading>
-                        <Text textAlign='center'>{work.field_description}</Text>
+                        <VStack
+                            align={'stretch'}
+                            h={'100%'}
+                        >
+                            <Image
+                                src={`${ BACKEND_ORIGIN }${work.field_img}`}
+                                alt={work.title}
+                                borderRadius='lg'
+                            />
+                            <Heading as='h3' fontSize='xl' textAlign='center'>{work.title}</Heading>
+                            <Text textAlign='center'>{work.field_description}</Text>
+                        </VStack>
                     </CardBody>
                 </Card>
             </Link>
