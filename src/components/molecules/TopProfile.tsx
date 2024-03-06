@@ -2,6 +2,7 @@ import { FC, Fragment, memo, useEffect } from "react";
 import { 
     Box,
     Center,
+    Flex,
     Heading,
     Image,
     Link,
@@ -12,7 +13,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 import { useProfile } from "../../hooks/useProfile";
-import { BACKEND_ORIGIN } from "../../config/settings";
+import { BACKEND_ORIGIN, GITHUB_LINK, X_LINK } from "../../config/settings";
 
 
 export const TopProfile: FC = memo(() => {
@@ -28,35 +29,53 @@ export const TopProfile: FC = memo(() => {
                     <Spinner />
                 </Center>
             ) : (
-                <>
-                    <Image
-                        src={ profile && `${ BACKEND_ORIGIN }${profile.field_img}` }
-                        alt='Mochiken'
-                        borderRadius='full'
-                        boxSize='50%'
-                        m='auto'
-                    />
-                    <Center my='5'>
-                        <Link href='https://github.com/kmmch' target='_blank'>
-                            <FaGithub size="2rem" />
-                        </Link>
-                        <Link href='https://twitter.com/mochiken__code' target='_blank'>
-                            <FaXTwitter size="2rem" />
-                        </Link>
-                    </Center>
-                    <Box my='5'>
-                        <Heading as='h2' textAlign='center'>
-                            { profile && profile.title}
-                        </Heading>
-                        <Text textAlign='center'>WEBエンジニア</Text>
-                    </Box>
-                    <Box my='5'>
-                        { profile && profile.field_body.map((body) => (
-                            <Fragment key={body}>
-                                <Text>{ body }</Text>
-                            </Fragment>
-                        ))}
-                    </Box>
+                <> 
+                    <Flex
+                        flexDirection={{
+                            base: 'column',
+                            sm: 'row'
+                        }}
+                    >
+                        <Box w={{
+                                base: '100%',
+                                lg: '50%'
+                            }}
+                        >
+                            <Box w='100%'>
+                                <Image
+                                    src={ profile && `${ BACKEND_ORIGIN }${profile.field_img}` }
+                                    alt={'Mochiken'}
+                                    borderRadius={'full'}
+                                    m={'auto'}
+                                    w={'75%'}
+                                    maxW={'300px'}
+                                />
+                            </Box>
+                        </Box>
+                        <Box w={{
+                                base: '100%',
+                                lg: '50%'
+                            }}
+                        >
+                            <Heading as='h2'>
+                                { profile && profile.title}
+                            </Heading>
+                            <Text>WEBエンジニア</Text>
+                            <Flex>
+                                <Link href={ GITHUB_LINK } target={'_blank'} textAlign={'center'}>
+                                    <FaGithub size="2rem" />
+                                </Link>
+                                <Link href={ X_LINK } target={'_blank'} textAlign={'center'}>
+                                    <FaXTwitter size="2rem" />
+                                </Link>
+                            </Flex>
+                            { profile && profile.field_body.map((body) => (
+                                <Fragment key={body}>
+                                    <Text>{ body }</Text>
+                                </Fragment>
+                            ))}
+                        </Box>
+                    </Flex>
                 </>
             )}
         </>
