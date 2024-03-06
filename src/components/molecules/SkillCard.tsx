@@ -20,7 +20,7 @@ export const SkillCard:FC<Props> = memo((props) => {
                 my="3"
                 w='100%'
             >
-                <CardBody>
+                <CardBody px={1}>
                     <Flex justifyContent="start" alignItems="center">
                         <Image
                             src={`${ BACKEND_ORIGIN }${img}`}

@@ -14,7 +14,7 @@ export const Section: FC<Props> = memo((props) => {
         <>
             <Box py='50px'>
                 { title && <Heading as='h2' textAlign='center'>{ title }</Heading>}
-                { description && <Text mt={2} textAlign='center'>{ description }</Text> }
+                { description && <Text mt={2} mb={5} textAlign='center'>{ description }</Text> }
                 { children }      
             </Box>
         </>

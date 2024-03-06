@@ -33,12 +33,16 @@ export const TopProfile: FC = memo(() => {
                     <Flex
                         flexDirection={{
                             base: 'column',
-                            sm: 'row'
+                            md: 'row'
                         }}
                     >
                         <Box w={{
                                 base: '100%',
                                 lg: '50%'
+                            }}
+                            mb={{
+                                base: 3,
+                                md: 0
                             }}
                         >
                             <Box w='100%'>
@@ -57,11 +61,29 @@ export const TopProfile: FC = memo(() => {
                                 lg: '50%'
                             }}
                         >
-                            <Heading as='h2'>
+                            <Heading as='h2'
+                                textAlign={{
+                                    base: 'center',
+                                    md: 'start'
+                                }}
+                                mb={1}
+                            >
                                 { profile && profile.title}
                             </Heading>
-                            <Text>WEBエンジニア</Text>
-                            <Flex>
+                            <Text
+                                textAlign={{
+                                    base: 'center',
+                                    md: 'start'
+                                }}
+                                mb={3}
+                            >WEBエンジニア</Text>
+                            <Flex
+                                justifyContent={{
+                                    base: 'center',
+                                    md: 'start'
+                                }}
+                                mb={3}
+                            >
                                 <Link href={ GITHUB_LINK } target={'_blank'} textAlign={'center'}>
                                     <FaGithub size="2rem" />
                                 </Link>

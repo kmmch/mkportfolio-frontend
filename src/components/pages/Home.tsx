@@ -15,27 +15,11 @@ import { SkillCardList } from "../molecules/SkillCardList";
 import { Level } from "../atoms/Level";
 import { TopProfile } from "../molecules/TopProfile";
 import { ContactForm } from "../molecules/ContactForm";
-// import { motion, useScroll } from "framer-motion";
 
 export const Home: FC = memo(() => {
 
-    // const { scrollYProgress } = useScroll();
-
     return (
         <>
-            {/* <motion.div
-                style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    zIndex: 9,
-                    height: "20px",
-                    transformOrigin: "0%",
-                    backgroundColor: "#319795",
-                    scaleX: scrollYProgress
-                }}
-            /> */}
             <Section>
                 <TopProfile />
             </Section>
@@ -79,9 +63,9 @@ export const Home: FC = memo(() => {
                 title='CONTACT'
                 description='お問い合わせ'
             >
-                <Box my={5}>
-                    <Text textAlign='center'>ここまでご覧いただきありがとうございます。</Text>
-                    <Text textAlign='center'>もし私でお力添えできることがございましたら、<br />まずはお気軽にご連絡ください。</Text>
+                <Box mb={5}>
+                    <Text textAlign='center'>ご覧いただきありがとうございます。</Text>
+                    <Text textAlign='center'>もしお力添えできることがございましたら、<br />まずはお気軽にご連絡ください。</Text>
                     <Text fontSize={'sm'} textAlign='center'>※原則2営業日以内に回答いたします。</Text>
                 </Box>
                 <ContactForm />

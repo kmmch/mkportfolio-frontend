@@ -1,8 +1,9 @@
-import { Center, Spinner, TabPanel, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Center, Spinner, TabPanel, Wrap, WrapItem } from "@chakra-ui/react";
 import { FC, memo, useEffect } from "react";
 
 import { SkillCard } from "./SkillCard";
 import { useSkills } from "../../hooks/useSkills";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 type Props = {
     skill_type: string;
@@ -13,6 +14,8 @@ export const SkillCardList:FC<Props> = memo((props) => {
 
     const { getSkills, loading, skills } = useSkills();
 
+    const [width, height] = useWindowSize();
+
     useEffect(() => getSkills(skill_type), []);
     
     return (
@@ -20,7 +23,7 @@ export const SkillCardList:FC<Props> = memo((props) => {
             <TabPanel>
                 <Wrap
                     justify={{
-                        md: 'space-between'
+                        md: 'space-around'
                     }}
                 >
                     {
@@ -30,7 +33,7 @@ export const SkillCardList:FC<Props> = memo((props) => {
                             </Center>
                         ) : 
                         skills && skills.map((skill, key) => {
-                            const tags=skill.field_skill_field.split(",");
+                            const tags = skill.field_skill_field.split(",");
                             return (
                                 <WrapItem key={key}
                                     w={{
@@ -48,6 +51,11 @@ export const SkillCardList:FC<Props> = memo((props) => {
                                 </WrapItem>
                             );
                         })
+                    }
+                    { 
+                        width > 991 && (skills && skills.length%3==2) ? (
+                            <Box w={'32.5%'} h={'120.8px'}></Box>
+                        ): null
                     }
                 </Wrap>
             </TabPanel>

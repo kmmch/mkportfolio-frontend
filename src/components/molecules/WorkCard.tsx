@@ -36,13 +36,16 @@ export const WorkCard: FC<Props> = memo((props) => {
         <>
             <Link 
                 onClick={onOpen}
-                h={'300px'}
+                // h={'300px'}
             >
-                <Card h={'100%'}>
+                <Card 
+                    // h={'100%'}
+                >
                     <CardBody>
                         <VStack
                             align={'stretch'}
-                            h={'100%'}
+                            justifyContent={'space-around'}
+                            // h={'100%'}
                         >
                             <Image
                                 src={`${ BACKEND_ORIGIN }${work.field_img}`}

@@ -5,12 +5,23 @@ import {
   Button,
   Center,
   Textarea
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+import styled from "styled-components";
+
 
 import { ControlledInput } from "../atoms/ContorolledInput";
 import { ThanksMessage } from "../atoms/ThanksMessage";
 import { useCsrfToken } from "../../hooks/useCsrfToken";
 import { BACKEND_ORIGIN } from "../../config/settings";
+
+
+const SForm = styled.form`
+    text-align:center;
+    width: 100%;
+    @media screen and (min-width: 48em) {
+        width: 768px;
+    }
+`;
 
 export const ContactForm: FC = memo(() => {
     // お問合せフォームを表示するか、送信完了メッセージを表示するかを管理するステート
@@ -61,39 +72,49 @@ export const ContactForm: FC = memo(() => {
         <>
         {!visible && <ThanksMessage />}
         {visible &&
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <ControlledInput
-                    label='ユーザー名'
-                    errors={errors}
-                    isRequired
-                    {...register('name', {
-                        required: 'お名前を入力してください',
-                    })}
-                />
-                <ControlledInput
-                    label='メールアドレス'
-                    type='email'
-                    errors={errors}
-                    isRequired
-                    {...register('email', {
-                        required: 'メールアドレスを入力してください',
-                    })}
-                />
-                <ControlledInput
-                    label='お問い合わせ内容'
-                    errors={errors}
-                    as={Textarea}
-                    isRequired
-                    {...register('body', {
-                        required: 'お問い合わせ内容を入力してください',
-                    })}
-                />
-                <Center>
-                    <Button mt={4} w={'100%'} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+            <Center className="form__wrapper">
+                <SForm onSubmit={handleSubmit(onSubmit)} >
+                    <ControlledInput
+                        label='ユーザー名'
+                        errors={errors}
+                        isRequired
+                        {...register('name', {
+                            required: 'お名前を入力してください',
+                        })}
+                    />
+                    <ControlledInput
+                        label='メールアドレス'
+                        type='email'
+                        errors={errors}
+                        isRequired
+                        {...register('email', {
+                            required: 'メールアドレスを入力してください',
+                        })}
+                    />
+                    <ControlledInput
+                        label='お問い合わせ内容'
+                        errors={errors}
+                        as={Textarea}
+                        isRequired
+                        {...register('body', {
+                            required: 'お問い合わせ内容を入力してください',
+                        })}
+                    />
+                    <Button 
+                        mt={4}
+                        colorScheme='teal' 
+                        isLoading={isSubmitting}
+                        type='submit'
+                        maxW='768px'
+                        w={{
+                            base: '100%',
+                            md: '70%'
+                        }}
+                    >
                         Submit
                     </Button>
-                </Center>
-            </form>
+                </SForm>
+            </Center>
         }
       </>
     );
