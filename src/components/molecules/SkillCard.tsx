@@ -18,6 +18,7 @@ export const SkillCard:FC<Props> = memo((props) => {
         <>
             <Card
                 my="3"
+                w='100%'
             >
                 <CardBody>
                     <Flex justifyContent="start" alignItems="center">
