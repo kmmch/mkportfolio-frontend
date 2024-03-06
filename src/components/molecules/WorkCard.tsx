@@ -34,21 +34,19 @@ export const WorkCard: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Center mt={3} mb={5}>
-                <Link onClick={onOpen}>
-                    <Card maxW='sm'>
-                        <CardBody>
-                            <Image
-                                src={`${ BACKEND_ORIGIN }${work.field_img}`}
-                                alt={work.title}
-                                borderRadius='lg'
-                            />
-                            <Heading as='h3' fontSize='xl' textAlign='center' mt={3}>{work.title}</Heading>
-                            <Text textAlign='center'>{work.field_description}</Text>
-                        </CardBody>
-                    </Card>
-                </Link>
-            </Center>
+            <Link onClick={onOpen} className="cardlink">
+                <Card className="card">
+                    <CardBody>
+                        <Image
+                            src={`${ BACKEND_ORIGIN }${work.field_img}`}
+                            alt={work.title}
+                            borderRadius='lg'
+                        />
+                        <Heading as='h3' fontSize='xl' textAlign='center' mt={3}>{work.title}</Heading>
+                        <Text textAlign='center'>{work.field_description}</Text>
+                    </CardBody>
+                </Card>
+            </Link>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>

@@ -13,7 +13,7 @@ export const BasicContainer: FC<Props> = memo((props) => {
             <Container
                 maxW={{
                     base: "90%",
-                    lg: "960px"
+                    lg: "1100px"
                 }}
 
                 backgroundColor={bColor}
