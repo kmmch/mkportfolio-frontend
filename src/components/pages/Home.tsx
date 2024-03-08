@@ -20,7 +20,7 @@ export const Home: FC = memo(() => {
 
     return (
         <>
-            <Section>
+            <Section firstSection={true}>
                 <TopProfile />
             </Section>
 
