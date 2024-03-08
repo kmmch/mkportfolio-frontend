@@ -10,7 +10,7 @@ type Props = {
 }
 
 const containerMaxWidth:string = '1440px';
-const fixedHeaderHeight:number = 100;
+const fixedHeaderHeight:number = 72;
 const fixedNavigationWidthPc:string = '17%';
 const fixedNavigationMaxWidth:string = '280px';
 const fixedNavigationHeight:string = '100vh';
@@ -21,7 +21,8 @@ const contentAreaMarginLeft:string = '18%';
 export const MenuHeader: FC<Props> = memo((props) => {
 
     const fixedHeaderCustomStyle = {
-        boxShadow: "0px 12px 6px -13px #777777"
+        // boxShadow: "0px 12px 6px -13px #777777"
+        boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.25)"
     };
 
     const { children } = props;
@@ -35,11 +36,14 @@ export const MenuHeader: FC<Props> = memo((props) => {
                     zIndex={9}
                     backgroundColor={'white'}
                     w={'100%'} 
-                    h={fixedHeaderHeight}
+                    h={`${fixedHeaderHeight}px`}
                     alignItems={'center'}
+                    style={fixedHeaderCustomStyle}
                 >
                     <Container maxW={{[BREAK_POINT]: containerMaxWidth}}>
-                        <HStack justifyContent={'space-between'}>
+                        <HStack 
+                            justifyContent={'space-between'}
+                        >
                             <Link href='/' _hover={{opacity:'0.5'}}>
                                 <Heading as='h1'>Mochiken's Portfolio</Heading>
                             </Link>
