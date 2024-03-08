@@ -10,13 +10,24 @@ type Props = {
 export const Section: FC<Props> = memo((props) => {
     const { children, title, description } = props;
 
+    const anchorLink = title ? title?.toLowerCase() : null;
+
     return (
         <>
-            <Box py='50px'>
-                { title && <Heading as='h2' textAlign='center'>{ title }</Heading>}
-                { description && <Text mt={2} mb={5} textAlign='center'>{ description }</Text> }
-                { children }      
-            </Box>
+            { anchorLink ? (
+                <Box py='50px' id={ anchorLink }>
+                    { title && <Heading as='h2' textAlign='center'>{ title }</Heading>}
+                    { description && <Text mt={2} mb={5} textAlign='center'>{ description }</Text> }
+                    { children }      
+                </Box>
+            ) : (
+                <Box py='50px'>
+                    { title && <Heading as='h2' textAlign='center'>{ title }</Heading>}
+                    { description && <Text mt={2} mb={5} textAlign='center'>{ description }</Text> }
+                    { children }      
+                </Box>
+            )}
+            {/*  */}
         </>
     );
 });

@@ -4,6 +4,7 @@ import { FC, memo, useEffect } from "react";
 import { SkillCard } from "./SkillCard";
 import { useSkills } from "../../hooks/useSkills";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { BREAK_POINT } from "../../config/settings";
 
 type Props = {
     skill_type: string;
@@ -23,7 +24,7 @@ export const SkillCardList:FC<Props> = memo((props) => {
             <TabPanel>
                 <Wrap
                     justify={{
-                        md: 'space-around'
+                        [BREAK_POINT]: 'space-around'
                     }}
                 >
                     {
@@ -38,7 +39,6 @@ export const SkillCardList:FC<Props> = memo((props) => {
                                 <WrapItem key={key}
                                     w={{
                                         base: '100%',
-                                        md: '48%',
                                         lg: '32.5%'
                                     }}
                                 >

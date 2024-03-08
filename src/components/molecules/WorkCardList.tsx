@@ -3,6 +3,7 @@ import { Center, Spinner, Wrap, WrapItem } from "@chakra-ui/react";
 
 import { useWorks } from "../../hooks/useWorks";
 import { WorkCard } from "./WorkCard";
+import { BREAK_POINT } from "../../config/settings";
 
 
 export const WorkCardList: FC = memo(() => {
@@ -15,7 +16,7 @@ export const WorkCardList: FC = memo(() => {
         <>
             <Wrap 
                 justify={{
-                    md: 'space-between'
+                    [BREAK_POINT]: 'space-between'
                 }}
             >
                 {
@@ -29,7 +30,7 @@ export const WorkCardList: FC = memo(() => {
                             <WrapItem key={key} 
                                 maxW={{
                                     base: '100%',
-                                    md: '32.5%'
+                                    [BREAK_POINT]: '32.5%'
                                 }}
                             >
                                 <WorkCard work={work} />

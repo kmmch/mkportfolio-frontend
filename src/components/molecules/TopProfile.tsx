@@ -13,7 +13,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 import { useProfile } from "../../hooks/useProfile";
-import { BACKEND_ORIGIN, GITHUB_LINK, X_LINK } from "../../config/settings";
+import { BACKEND_ORIGIN, BREAK_POINT, GITHUB_LINK, X_LINK } from "../../config/settings";
 
 
 export const TopProfile: FC = memo(() => {
@@ -33,16 +33,16 @@ export const TopProfile: FC = memo(() => {
                     <Flex
                         flexDirection={{
                             base: 'column',
-                            md: 'row'
+                            [BREAK_POINT]: 'row'
                         }}
                     >
                         <Box w={{
                                 base: '100%',
-                                lg: '50%'
+                                [BREAK_POINT]: '50%'
                             }}
                             mb={{
                                 base: 3,
-                                md: 0
+                                [BREAK_POINT]: 0
                             }}
                         >
                             <Box w='100%'>
@@ -58,13 +58,13 @@ export const TopProfile: FC = memo(() => {
                         </Box>
                         <Box w={{
                                 base: '100%',
-                                lg: '50%'
+                                [BREAK_POINT]: '50%'
                             }}
                         >
                             <Heading as='h2'
                                 textAlign={{
                                     base: 'center',
-                                    md: 'start'
+                                    [BREAK_POINT]: 'start'
                                 }}
                                 mb={1}
                             >
@@ -73,14 +73,14 @@ export const TopProfile: FC = memo(() => {
                             <Text
                                 textAlign={{
                                     base: 'center',
-                                    md: 'start'
+                                    [BREAK_POINT]: 'start'
                                 }}
                                 mb={3}
                             >WEBエンジニア</Text>
                             <Flex
                                 justifyContent={{
                                     base: 'center',
-                                    md: 'start'
+                                    [BREAK_POINT]: 'start'
                                 }}
                                 mb={3}
                             >

@@ -7,10 +7,9 @@ export const Navigation: FC = memo(() => {
     return (
         <>
             <Stack as="nav">
-                <HoverLink href="/burger">Burger</HoverLink>
-                <HoverLink href="/sidemenu">Sidemenu</HoverLink>
-                <HoverLink href="/drink">Drink</HoverLink>
-                <HoverLink href="/takeout">Takeout</HoverLink>          
+                <HoverLink href="/#work">WORK</HoverLink>
+                <HoverLink href="/#skill">SKILL</HoverLink>
+                <HoverLink href="/#contact">CONTACT</HoverLink>
             </Stack>
         </>
     );
