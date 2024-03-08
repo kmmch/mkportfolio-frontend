@@ -14,7 +14,7 @@ export const SkillCardList:FC<Props> = memo((props) => {
 
     const { getSkills, loading, skills } = useSkills();
 
-    const [width, height] = useWindowSize();
+    const [width] = useWindowSize();
 
     useEffect(() => getSkills(skill_type), []);
     

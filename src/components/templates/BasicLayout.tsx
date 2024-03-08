@@ -1,8 +1,9 @@
 import { FC, ReactNode, memo } from "react";
-import { Header } from "../organisms/Header";
-import { Footer } from "../organisms/Footer";
 import { Box } from "@chakra-ui/react";
+
+import { Footer } from "../organisms/Footer";
 import { BasicContainer } from "../atoms/BasicContainer";
+import { MenuHeader } from "../organisms/MenuHeader";
 
 type Props = {
     children: ReactNode;
@@ -12,13 +13,14 @@ export const BasicLayout: FC<Props> = memo((props) => {
 
     return (
         <>
-            <Header />
-            <Box py={5}>
-                <BasicContainer>
-                    { children }
-                </BasicContainer>
-            </Box>
-            <Footer />
+            <MenuHeader>
+                <Box py={5}>
+                    <BasicContainer>
+                        { children }
+                    </BasicContainer>
+                </Box>
+                <Footer />
+            </MenuHeader>
         </>
     );
 });

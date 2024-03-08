@@ -72,7 +72,7 @@ export const ContactForm: FC = memo(() => {
         <>
         {!visible && <ThanksMessage />}
         {visible &&
-            <Center className="form__wrapper">
+            <Center>
                 <SForm onSubmit={handleSubmit(onSubmit)} >
                     <ControlledInput
                         label='ユーザー名'
@@ -108,7 +108,7 @@ export const ContactForm: FC = memo(() => {
                         maxW='768px'
                         w={{
                             base: '100%',
-                            md: '70%'
+                            md: '20%'
                         }}
                     >
                         Submit
