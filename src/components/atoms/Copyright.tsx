@@ -13,7 +13,6 @@ export const Copyright: FC = memo(() => {
             <Text
                 textAlign='center'
                 fontSize='sm'
-                color='white'
             >COPYRIGHT © {year} MASAYA KEMMOCHI. <br />ALL RIGHTS RESERVED.</Text>
         </>
     );
