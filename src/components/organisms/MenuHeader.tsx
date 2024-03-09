@@ -31,7 +31,9 @@ export const MenuHeader: FC<Props> = memo((props) => {
         <>
             <Stack>
                 <HStack 
-                    p={5} 
+                    p={{
+                        [BREAK_POINT]:5
+                    }} 
                     position={'fixed'} 
                     zIndex={9}
                     backgroundColor={'white'}
@@ -40,12 +42,24 @@ export const MenuHeader: FC<Props> = memo((props) => {
                     alignItems={'center'}
                     style={fixedHeaderCustomStyle}
                 >
-                    <Container maxW={{[BREAK_POINT]: containerMaxWidth}}>
+                    <Container 
+                        maxW={{
+                            [BREAK_POINT]: containerMaxWidth
+                        }}
+                    >
                         <HStack 
                             justifyContent={'space-between'}
                         >
                             <Link href='/' _hover={{opacity:'0.5'}}>
-                                <Heading as='h1'>Mochiken's Portfolio</Heading>
+                                <Heading 
+                                    as='h1'
+                                    fontSize={{
+                                        base: 24,
+                                        [BREAK_POINT]: 28
+                                    }}
+                                >
+                                    Mochiken's Portfolio
+                                </Heading>
                             </Link>
                             <Box 
                                 display={{ 
@@ -59,7 +73,12 @@ export const MenuHeader: FC<Props> = memo((props) => {
                     </Container>
                 </HStack>
                 {/* 横幅768px以上 */}
-                <Container mt={fixedHeaderHeight*1.35} maxW={{[BREAK_POINT]: containerMaxWidth}}>
+                <Container 
+                    mt={fixedHeaderHeight*1.35}
+                    maxW={{
+                        [BREAK_POINT]: containerMaxWidth
+                    }}
+                >
                     <HStack alignItems="start" gap={0}>
                         <Box 
                             display={{ 

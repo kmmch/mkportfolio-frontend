@@ -11,8 +11,11 @@ export const BasicContainer: FC<Props> = memo((props) => {
     return (
         <>
             <Container
+                p={{
+                    base: 0
+                }}
                 maxW={{
-                    base: "90%",
+                    base: "",
                     lg: "1100px"
                 }}
 
